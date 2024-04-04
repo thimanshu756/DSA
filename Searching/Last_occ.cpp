@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+
+int Last_occ(int arr[], int size, int target){
+        int start =0;
+        int end= size-1;
+        int mid= start +(end-start)/2;
+        int index;
+    while (start<end)
+    {
+       int element = arr[mid] ;
+
+        if (element == target)
+        {
+            index = mid;
+            // search in right
+            start = mid+1;
+
+        }
+        else if(target < element)
+        {
+            // search in left
+            end= mid-1;
+        }
+        else if(target > element){
+            // search in right
+            start = mid+1;
+        }
+        mid= start +(end-start)/2;
+    }
+    return index;
+}
+
+int main(){
+
+
+    int arr[] = {33,36,46,46,46,46,46,99};
+    int size = 8;
+
+    int indexOftarget = Last_occ(arr, size, 46);
+
+    if (indexOftarget == -1)
+    {
+        cout << "target not found" << endl;
+    }
+    else
+    {
+        cout << "target found at " << indexOftarget << " index " << endl;
+    }
+
+
+
+
+
+    return 0;
+}
