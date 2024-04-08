@@ -65,6 +65,5 @@ printLL(head);
 
     Node* reversedAns= reverseKNode(head,3);
     printLL(reversedAns);
-
     return 0;
 }
