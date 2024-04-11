@@ -40,79 +40,83 @@ Node *sortLL(Node *&head)
     Node *twoTail = twoHead;
 
     // transverse the original LL
-    Node* curr = head;
-        cout<<"done1"<<endl;
+    Node *curr = head;
+    cout << "done1" << endl;
 
-    while(curr!= NULL){
+    while (curr != NULL)
+    {
         // for zeros
 
-
-        if(curr->data==0){
+        if (curr->data == 0)
+        {
             // take out the zero wali node
-            Node* temp= curr;
+            Node *temp = curr;
             curr = curr->next;
-            temp->next=NULL;
+            temp->next = NULL;
             // aend the node in zerohead tail
             zeroTail->next = temp;
-            zeroTail=temp;
+            zeroTail = temp;
         }
         // for ones
-      else if(curr->data == 1){
+        else if (curr->data == 1)
+        {
             // smae as above
-            Node* temp = curr;
-            curr= curr->next;
-            temp->next=NULL;
-            oneTail->next=temp;
-            oneTail=temp;
+            Node *temp = curr;
+            curr = curr->next;
+            temp->next = NULL;
+            oneTail->next = temp;
+            oneTail = temp;
         }
         // for twos
-          else if(curr->data == 2){
+        else if (curr->data == 2)
+        {
             // smae as above
-            Node* temp = curr;
-            curr= curr->next;
-            temp->next=NULL;
-            twoTail->next=temp;
-            twoTail=temp;
+            Node *temp = curr;
+            curr = curr->next;
+            temp->next = NULL;
+            twoTail->next = temp;
+            twoTail = temp;
         }
-
     }
 
     // join them and remove the dummy nodes
     // ones list
-    Node* temp= oneHead;
-    oneHead=oneHead->next;
-    temp->next=NULL;
+    Node *temp = oneHead;
+    oneHead = oneHead->next;
+    temp->next = NULL;
     delete temp;
     // now we can do the same
-     Node* temp2= twoHead;
-    twoHead=twoHead->next;
-    temp2->next=NULL;
+    Node *temp2 = twoHead;
+    twoHead = twoHead->next;
+    temp2->next = NULL;
     delete temp2;
 
     // join the list
-    if(oneHead!= NULL){
+    if (oneHead != NULL)
+    {
         // zero wali list ko one wali list se attach kr do
-        zeroTail->next=oneHead;
-        if(twoHead!=NULL){
-            oneTail->next=twoHead;
-        }else{
+        zeroTail->next = oneHead;
+        if (twoHead != NULL)
+        {
+            oneTail->next = twoHead;
+        }
+        else
+        {
             // means on head is emty
-            if(twoHead!=NULL){
-                zeroTail->next=twoHead;
+            if (twoHead != NULL)
+            {
+                zeroTail->next = twoHead;
             }
         }
     }
     // remove zerohead dummy node
-    temp= zeroHead;
-    zeroHead=zeroHead->next;
-    temp->next=NULL;
+    temp = zeroHead;
+    zeroHead = zeroHead->next;
+    temp->next = NULL;
     delete temp;
     return zeroHead;
-
 }
-int main()
-{
-
+int main(){
     Node *head = new Node(2);
     Node *second = new Node(2);
     Node *third = new Node(1);
@@ -124,11 +128,9 @@ int main()
     third->next = fourth;
     fourth->next = fifth;
     fifth->next = sixth;
-
     cout << "input LL: ";
     print(head);
-head = sortLL(head);
-  //cout << "Came out of sort function" << endl;
-  print(head);
+    head = sortLL(head);
+    print(head);
     return 0;
 }
