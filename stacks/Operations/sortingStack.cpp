@@ -12,11 +12,9 @@ void insertSorted(stack<int>& s, int target) {
                 s.push(target);
                 return;
         }
-
         int topElement = s.top();
         s.pop();
         insertSorted(s, target);
-
         //BT
         s.push(topElement);
 }
