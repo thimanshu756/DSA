@@ -67,7 +67,19 @@ void level_order_traversel(Node* root){
     }
 }
 
+// in order traversal [LNR]
 
+void inOrderTraversal(Node*root){
+    // base case
+    if(root==NULL){
+        return;
+    }
+    //LNR
+    inOrderTraversal(root->left);
+    cout<<root->data<<" ";
+
+    inOrderTraversal(root->right);
+}
 int main(){
 
 
