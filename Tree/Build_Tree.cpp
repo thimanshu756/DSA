@@ -79,7 +79,18 @@ void inOrderTraversal(Node*root){
     cout<<root->data<<" ";
 
     inOrderTraversal(root->right);
-}
+};
+// preorder [NLR]
+
+void preOrderTraversal(Node* root){
+    if(root==NULL){
+        return;
+    }
+    //NLR
+    cout<<root->data<<" ";
+    preOrderTraversal(root->left);
+    preOrderTraversal(root->right);
+};
 int main(){
 
 
