@@ -91,6 +91,17 @@ void preOrderTraversal(Node* root){
     preOrderTraversal(root->left);
     preOrderTraversal(root->right);
 };
+
+void postOrderTraversal(Node* root){
+    if(root==NULL){
+        return;
+    }
+
+    //LRN
+    postOrderTraversal(root->left);
+    postOrderTraversal(root->right);
+    cout<<root->data<<" ";
+}
 int main(){
 
 
